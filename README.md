@@ -1,6 +1,6 @@
-# light
+# nextStep
 
-Light is a collaborative mobile application that helps blind people walk around the globe. 
+nextStep is a collaborative mobile application that helps blind people walk around the globe. 
 
 Main idea of the app:
 
