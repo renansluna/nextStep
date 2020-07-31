@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { ScrollView, View, Image, Text, TextInput, Alert, TouchableOpacity, Button } from 'react-native';
 import styles from './styles';
 import MapView, { Callout } from 'react-native-maps';
-import Dialog from "react-native-dialog";
 import Modal from 'react-native-modal';
 import * as Permissions from 'expo-permissions';
 import Geocoder from 'react-native-geocoding';
+
 
 let title,
     id=0,
@@ -16,6 +16,8 @@ let title,
     cityName,
     isLongPress=false;
 
+
+ 
 
 export default class Mapa extends React.Component {
     constructor(props) {
@@ -53,6 +55,10 @@ export default class Mapa extends React.Component {
         ]
         
     };
+
+    //Iniciar o firebase
+   // if (!firebase.apps.length) { firebase.initializeApp(FirebaseKeys.FirebaseConfig); }
+
 //Assim criamos componentes: 
 //Componentes:
 /*
@@ -131,7 +137,7 @@ async getLocalizationData () {
             console.log('Aqui Renan' + addressComponent.short_name);
         })
         .catch(error => console.warn(error));
-
+        
 /*
     Geocoder.from({
         lat : this.latitudeLongitudeTemp.lat,
@@ -151,7 +157,9 @@ async componentDidMount(){
         ( { coords: {latitude, longitude} } )  => this.setState({latitude: latitude, longitude: longitude}),
         (error) => console.log('Error:', error)
     )
+    
 }
+
 
 render () {
     const {latitude, longitude, latitudeDelta, longitudeDelta} = this.state; //localização do usuário

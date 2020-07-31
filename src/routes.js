@@ -12,6 +12,7 @@ export default function Routes() {
         
             <AppStack.Navigator>
                 <AppStack.Screen name="maps" component={maps} />
+                
             </AppStack.Navigator>
 
         </NavigationContainer>
