@@ -10,6 +10,30 @@ export default StyleSheet.create({
         alignItems: 'flex-end',
 
     },
+
+    buttonContainer: {
+        position: 'absolute',
+        bottom:-300,
+        left:140,
+    },
+    
+    loginContainer: {
+        flex: 1,
+        marginTop: 300,
+        alignItems: 'center'
+
+    },
+
+    loginInputStyle: {
+        height: 60, 
+        width: 200,
+        borderColor: 'gray', 
+        borderWidth: 1 
+    },
+
+    loginInputBox: {
+        flexDirection: 'row'
+    },
     
     headerText: {
         fontSize: 25,
@@ -47,6 +71,14 @@ export default StyleSheet.create({
 
     buttonStyle: {
         marginVertical: 20
+    },
+
+    loginText: {
+        color: 'black',
+        fontSize: 20,
+        fontWeight: '500',
+        marginTop: 10,
+        opacity: 0.5
     }
 
 });

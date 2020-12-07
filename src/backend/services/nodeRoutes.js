@@ -1,29 +1,26 @@
 const express = require('express');
-const crypto = require('crypto');
-const connection = require('../../database/connection');
 const routes = express.Router();
-
+const userController = require('./controllers/userController');
+const markerController = require('./controllers/markerController');
 //Rota -> Listar usuarios *irá mudar pra trazer um só*
-routes.get('/users', async (req, res) => {
-    const users = await connection('users').select('*');
-    //estou trazendo todos os usuarios, devo trazer só 1
-    return res.json(users);
-});
+routes.get('/users', userController.index);
+
+//Rota -> Login de usuários
+routes.post('/userLogin', userController.login);
 
 //Rota -> criação de usuários
-routes.post('/users', async (req, res) => {
-    const { email, password, name } = req.body;
+routes.post('/users', userController.create);
 
-    const id_user = crypto.randomBytes(4).toString('HEX');
+//Rota -> Salvar markers
+routes.post('/marker', markerController.create);
 
-    await connection('users').insert({ //users aqui no parametro é a tabela do banco
-        id_user,
-        name,
-        email, 
-        password, 
-    })
+//Rota -> Listar markers
+routes.get('/marker', markerController.index);
 
-    return res.json({id_user});
-});
-
+//Rota -> Deletar markers
+routes.delete('/deleteMarker/:id_marker', markerController.delete);
+/*
+//Rota -> Deletar todos os markers
+routes.post('/deleteAllMarkers', markerController.deleteAll);
+*/
 module.exports = routes;
